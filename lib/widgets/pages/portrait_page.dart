@@ -24,7 +24,7 @@ class PortraitPage extends FormPage {
           height: MediaQuery.of(context).size.height,
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             Image.asset(
-              'assets/images/logo.png',
+              'assets/assets.images/logo.png',
               width: MediaQuery.of(context).size.width * 0.8,
             ),
             Text(
