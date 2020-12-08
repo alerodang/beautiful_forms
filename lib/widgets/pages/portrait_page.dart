@@ -1,12 +1,15 @@
 import 'package:beautiful_forms/schema/form_page_schema.dart';
+import 'package:beautiful_forms/widgets/elements/nextButton.dart';
+import 'package:beautiful_forms/widgets/elements/startButton.dart';
 import 'package:beautiful_forms/widgets/form_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class PortraitPage extends FormPage {
-  final String restaurantName;
+  final FormPageSchema schema;
+  final int number;
 
-  PortraitPage(FormPageSchema schema, this.restaurantName) : super(schema);
+  PortraitPage({this.schema, this.number});
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +27,11 @@ class PortraitPage extends FormPage {
           height: MediaQuery.of(context).size.height,
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             Image.asset(
-              'assets/assets.images/logo.png',
+              this.schema.imageRoute,
               width: MediaQuery.of(context).size.width * 0.8,
+            ),
+            Divider(
+              height: 50,
             ),
             Text(
               '¡Bienvenido a la app de los restaurantes!',
@@ -34,21 +40,13 @@ class PortraitPage extends FormPage {
             ),
             Divider(),
             Text(
-              'Estas a punto de entrar en la cola de ${this.restaurantName}. Una vez te apuntes te avisaremos cuando sea tu turno para que puedas aprovechar el tiempo. ',
+              'Estas a punto de entrar en la cola de ${this.schema.restaurantName}. Una vez te apuntes te avisaremos cuando sea tu turno para que puedas aprovechar el tiempo. ',
               style: Theme.of(context).textTheme.bodyText2,
               textAlign: TextAlign.center,
             ),
-            Divider(),
-            FlatButton(
-                color: Theme.of(context).buttonColor,
-                onPressed: () => print('foo'),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    '¡Quiero Apuntarme!',
-                    style: Theme.of(context).textTheme.button,
-                  ),
-                ))
+            Divider(height: 40),
+            StartButton(
+                message: '¡Quiero Apuntarme!', nextRoute: schema.nextRoute),
           ]),
         ),
       ]),

@@ -11,7 +11,8 @@ FormSchema schema = FormSchema.fromJson({
     {'name': 'data', 'route': '/data'}
   ],
   'primaryColor': 0xff000000,
-  'title': 'First Form'
+  'title': 'First Form',
+  'image': 'assets/images/logo.png'
 });
 
 Future<void> main() async {

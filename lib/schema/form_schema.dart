@@ -8,7 +8,8 @@ part 'form_schema.g.dart';
 @JsonSerializable(nullable: false)
 class FormSchema {
   final int accentColor;
-  final String fontFamily;
+  final String fontFamily1;
+  final String fontFamily2;
   final String initialRoute;
   final List<FormPageSchema> pagesSchemas;
   final int primaryColor;
@@ -16,7 +17,8 @@ class FormSchema {
 
   FormSchema(
       {this.accentColor,
-      this.fontFamily,
+      this.fontFamily1,
+      this.fontFamily2,
       this.initialRoute,
       this.pagesSchemas,
       this.primaryColor,

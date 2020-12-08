@@ -4,5 +4,5 @@ import 'package:flutter/material.dart';
 abstract class FormPage extends StatelessWidget {
   final FormPageSchema schema;
 
-  FormPage(this.schema);
+  FormPage({this.schema});
 }

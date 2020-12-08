@@ -9,7 +9,8 @@ part of beautiful_forms;
 FormSchema _$FormSchemaFromJson(Map<String, dynamic> json) {
   return FormSchema(
     accentColor: json['accentColor'] as int,
-    fontFamily: json['fontFamily'] as String,
+    fontFamily1: json['fontFamily1'] as String,
+    fontFamily2: json['fontFamily2'] as String,
     initialRoute: json['initialRoute'] as String,
     pagesSchemas: (json['pagesSchemas'] as List)
         .map((e) => FormPageSchema.fromJson(e as Map<String, dynamic>))
@@ -22,7 +23,8 @@ FormSchema _$FormSchemaFromJson(Map<String, dynamic> json) {
 Map<String, dynamic> _$FormSchemaToJson(FormSchema instance) =>
     <String, dynamic>{
       'accentColor': instance.accentColor,
-      'fontFamily': instance.fontFamily,
+      'fontFamily1': instance.fontFamily1,
+      'fontFamily2': instance.fontFamily2,
       'initialRoute': instance.initialRoute,
       'pagesSchemas': instance.pagesSchemas,
       'primaryColor': instance.primaryColor,

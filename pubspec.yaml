@@ -1,6 +1,6 @@
 name: beautiful_forms
 description: Create beautiful forms with flutter example.
-version: 0.0.1
+version: 0.0.2
 author: Alejandro Rodríguez Angulo
 homepage:
 
@@ -13,6 +13,7 @@ dependencies:
   flutter:
     sdk: flutter
   json_annotation: ^3.0.0
+  google_fonts: ^1.1.1
 
 dev_dependencies:
   flutter_test:
@@ -21,3 +22,5 @@ dev_dependencies:
   build_runner: ^1.0.0
 
 flutter:
+  assets:
+    - assets/images/logo.png

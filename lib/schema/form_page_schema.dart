@@ -4,12 +4,39 @@ part 'form_page_schema.g.dart';
 
 @JsonSerializable(nullable: false)
 class FormPageSchema {
+  final String imageRoute;
+  final String type;   // TODO to enum
   final String name;
+  @JsonSerializable(nullable: true)
+  final String inputType;
+  @JsonSerializable(nullable: true)
+  final String text;
+  @JsonSerializable(nullable: true)
+  final String restaurantName;
+  @JsonSerializable(nullable: true)
   final String route;
+  @JsonSerializable(nullable: true)
+  final String question;
+  @JsonSerializable(nullable: true)
+  final String nextRoute;
+  @JsonSerializable(nullable: true)
+  final int accentColor;
 
-  FormPageSchema({this.route, this.name});
+  FormPageSchema({
+    this.question,
+    this.imageRoute,
+    this.inputType,
+    this.text,
+    this.name,
+    this.nextRoute,
+    this.restaurantName,
+    this.route,
+    this.type,
+    this.accentColor,
+  });
 
-  factory FormPageSchema.fromJson(Map<String, dynamic> json) => _$FormPageSchemaFromJson(json);
+  factory FormPageSchema.fromJson(Map<String, dynamic> json) =>
+      _$FormPageSchemaFromJson(json);
 
   Map<String, dynamic> toJson() => _$FormPageSchemaToJson(this);
 }
