@@ -10,6 +10,10 @@ FormPageSchema _$FormPageSchemaFromJson(Map<String, dynamic> json) {
   return FormPageSchema(
     question: json['question'] as String,
     imageRoute: json['imageRoute'] as String,
+    inputType: json['inputType'] as String,
+    options: (json['options'] as List)
+        .map((e) => Option.fromJson(e as Map<String, dynamic>))
+        .toList(),
     text: json['text'] as String,
     name: json['name'] as String,
     nextRoute: json['nextRoute'] as String,
@@ -25,6 +29,8 @@ Map<String, dynamic> _$FormPageSchemaToJson(FormPageSchema instance) =>
       'imageRoute': instance.imageRoute,
       'type': instance.type,
       'name': instance.name,
+      'options': instance.options,
+      'inputType': instance.inputType,
       'text': instance.text,
       'restaurantName': instance.restaurantName,
       'route': instance.route,

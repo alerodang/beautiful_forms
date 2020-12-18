@@ -1,6 +1,6 @@
-import 'package:beautiful_forms/schema/form_page_schema.dart';
-import 'package:beautiful_forms/widgets/elements/nextButton.dart';
-import 'package:beautiful_forms/widgets/elements/startButton.dart';
+import 'package:beautiful_forms/model/form_page_schema.dart';
+import 'package:beautiful_forms/widgets/elements/next_button.dart';
+import 'package:beautiful_forms/widgets/elements/start_button.dart';
 import 'package:beautiful_forms/widgets/form_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

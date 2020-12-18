@@ -1,5 +1,5 @@
 import 'package:beautiful_forms/builder/page_builder.dart';
-import 'package:beautiful_forms/schema/form_schema.dart';
+import 'package:beautiful_forms/model/form_schema.dart';
 import 'package:flutter/material.dart';
 
 class RoutesBuilder {

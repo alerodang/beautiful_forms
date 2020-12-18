@@ -5,10 +5,6 @@ class QuestionTextInput extends StatelessWidget {
 
   QuestionTextInput({this.color});
 
-  static bool _validate() {
-    throw UnimplementedError(); //TODO validate
-  }
-
   @override
   Widget build(BuildContext context) {
     return Padding(

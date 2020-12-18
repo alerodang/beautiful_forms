@@ -1,18 +1,18 @@
 import 'package:beautiful_forms/model/form_page_schema.dart';
 import 'package:beautiful_forms/widgets/elements/next_button.dart';
+import 'package:beautiful_forms/widgets/elements/selector.dart';
 import 'package:beautiful_forms/widgets/elements/question_info_text.dart';
 import 'package:beautiful_forms/widgets/elements/question_text.dart';
-import 'package:beautiful_forms/widgets/elements/question_text_input.dart';
 import 'package:beautiful_forms/widgets/elements/submit_button.dart';
 import 'package:beautiful_forms/widgets/form_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class QuestionPage extends FormPage {
+class OptionsPage extends FormPage {
   final FormPageSchema schema;
   final int number;
 
-  QuestionPage({this.schema, this.number}) : super(schema: schema);
+  OptionsPage({this.schema, this.number}) : super(schema: schema);
 
   @override
   Widget build(BuildContext context) {
@@ -38,15 +38,12 @@ class QuestionPage extends FormPage {
                   accentColor: Color(schema.accentColor),
                 ),
                 Divider(height: 10),
+                // TODO think if this should be inside questionInfoTExt widget
                 QuestionInfoText(text: schema.text),
                 Divider(height: 10),
                 Divider(height: 10),
-                QuestionTextInput(color: Color(schema.accentColor)),
-                schema.nextRoute != null
-                    ? NextButton(
-                        message: 'Siguiente', nextRoute: schema.nextRoute)
-                    : SubmitButton(
-                        message: 'Enviar Respuestas')
+                Selector(
+                    color: Color(schema.accentColor), options: schema.options, nextRoute: schema.nextRoute),
               ]),
         ),
       ]),

@@ -1,5 +1,6 @@
+import 'package:beautiful_forms/model/form_page_schema.dart';
 import 'package:beautiful_forms/widgets/form_page.dart';
-import 'package:beautiful_forms/schema/form_page_schema.dart';
+import 'package:beautiful_forms/widgets/pages/options_page.dart';
 import 'package:beautiful_forms/widgets/pages/portrait_page.dart';
 import 'package:beautiful_forms/widgets/pages/question_page.dart';
 
@@ -13,6 +14,9 @@ class PageBuilder {
         break;
       case 'question':
         return QuestionPage(schema: schema, number: number);
+        break;
+      case 'options':
+        return OptionsPage(schema: schema, number: number);
         break;
       default:
         throw new Exception('No valid page type: ' + schema.type);

@@ -14,6 +14,7 @@ dependencies:
     sdk: flutter
   json_annotation: ^3.0.0
   google_fonts: ^1.1.1
+  basic_utils: ^1.2.0
 
 dev_dependencies:
   flutter_test:

@@ -1,7 +1,7 @@
 library beautiful_forms;
 
 import 'package:beautiful_forms/builder/routes_builder.dart';
-import 'package:beautiful_forms/schema/form_schema.dart';
+import 'package:beautiful_forms/model/form_schema.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -17,6 +17,7 @@ class Form extends StatelessWidget {
       theme: ThemeData(
         accentColor: Color(schema.accentColor),
         primaryColor: Color(schema.primaryColor),
+        backgroundColor: Color(schema.primaryColor),
         visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: TextTheme(
           headline1:  GoogleFonts.getFont(schema.fontFamily1, color: Colors.white),

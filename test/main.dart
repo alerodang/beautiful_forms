@@ -1,11 +1,11 @@
 import 'package:beautiful_forms/builder/form_builder.dart';
-import 'package:beautiful_forms/schema/form_schema.dart';
+import 'package:beautiful_forms/model/form_schema.dart';
 import 'package:flutter/material.dart';
 
 FormSchema schema = FormSchema.fromJson({
   'title': 'First Form',
   'primaryColor': 0xff000000,
-  'accentColor': 0xffffeD00,
+  'accentColor': 0xfff3cd59,
   'fontFamily1': 'Karla',
   'fontFamily2': 'Roboto',
   'initialRoute': '/',
@@ -14,10 +14,10 @@ FormSchema schema = FormSchema.fromJson({
       'type': 'portrait',
       'name': 'start',
       'route': '/',
-//TODO all specific conf to an object call portrait params and we validate it in the builder
       'imageRoute': 'assets/images/logo.png',
       'restaurantName': 'Tasca Galileo',
-      'nextRoute': '/name'
+      'nextRoute': '/name',
+      'options': [],
     },
     {
       'type': 'question',
@@ -25,8 +25,9 @@ FormSchema schema = FormSchema.fromJson({
       'name': 'name',
       'route': '/name',
       'question': '¿Cuál es tu nombre?',
+      'options': [],
       'text': 'Introduce tu nombre y apellidos',
-      'accentColor': 0xffffeD00,
+      'accentColor': 0xfff3cd59,
       'nextRoute': '/telefono'
     },
     {
@@ -35,8 +36,9 @@ FormSchema schema = FormSchema.fromJson({
       'name': 'telefono',
       'route': '/telefono',
       'question': 'Nosotros te avisamos',
+      'options': [],
       'text': 'Introduce tu número de teléfono',
-      'accentColor': 0xffffeD00,
+      'accentColor': 0xfff3cd59,
       'nextRoute': '/personas'
     },
     {
@@ -44,9 +46,37 @@ FormSchema schema = FormSchema.fromJson({
       'inputType': 'number',
       'name': 'personas',
       'route': '/personas',
-      'question': '¿Cuantos sois?',
+      'question': '¿Cuántos sois?',
+      'options': [],
       'text': 'Dinos el tamaño de la mesa',
-      'accentColor': 0xffffeD00,
+      'accentColor': 0xfff3cd59,
+      'nextRoute': '/zona'
+    },
+    {
+      'type': 'options',
+      'inputType': 'string',
+      'name': 'zona',
+      'route': '/zona',
+      'question': '¿Dónde quieres comer?',
+      'options': [
+        {'text': 'terraza', 'value': 'outdoor'},
+        {'text': 'interior', 'value': 'indoor'},
+        {'text': 'indiferente', 'value': 'no-preference'},
+      ],
+      'accentColor': 0xfff3cd59,
+    },
+    {
+      'type': 'options',
+      'inputType': 'string',
+      'name': 'zona',
+      'route': '/zona',
+      'question': '¿Dónde quieres comer?',
+      'options': [
+        {'text': 'comer', 'value': 'outdoor'},
+        {'text': 'tomar algo', 'value': 'indoor'},
+        {'text': 'copeo', 'value': 'indoor'},
+      ],
+      'accentColor': 0xfff3cd59,
     }
   ],
 });
@@ -57,3 +87,4 @@ Future<void> main() async {
 
 // TODO añadir validación
 // TODO añadir envio de formularios
+// TODO all specific conf to an object call portrait params and we validate it in the builder

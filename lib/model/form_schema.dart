@@ -1,6 +1,6 @@
 library beautiful_forms;
 
-import 'package:beautiful_forms/schema/form_page_schema.dart';
+import 'package:beautiful_forms/model/form_page_schema.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'form_schema.g.dart';

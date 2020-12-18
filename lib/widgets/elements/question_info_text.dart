@@ -7,13 +7,13 @@ class QuestionInfoText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return text != null ? Padding(
       padding: EdgeInsets.only(left: 43),
       child: Text(
         text,
         style: Theme.of(context).textTheme.bodyText2,
         textAlign: TextAlign.left,
       ),
-    );
+    ) : Container(height: 0,);
   }
 }
