@@ -14,7 +14,7 @@ class SelectorButton extends StatelessWidget {
     return OutlineButton(
       padding: EdgeInsets.zero,
       child: Container(
-        color: Theme.of(context).buttonColor.withOpacity(0.15),
+        color: Theme.of(context).accentColor.withOpacity(0.15),
         constraints: BoxConstraints(maxWidth: 150),
         width: MediaQuery.of(context).size.width,
         child: Row(
@@ -28,9 +28,9 @@ class SelectorButton extends StatelessWidget {
                   child:
                   Text(letter, style: TextStyle(fontSize: 12))),
               decoration: BoxDecoration(
-                color: Theme.of(context).backgroundColor,
+                color: Theme.of(context).primaryColor,
                 border: Border.all(
-                    color: Theme.of(context).buttonColor),
+                    color: Theme.of(context).accentColor),
               ),
             ),
             Text(
@@ -39,12 +39,12 @@ class SelectorButton extends StatelessWidget {
           ],
         ),
       ),
-      hoverColor: Theme.of(context).buttonColor.withOpacity(0.3),
+      hoverColor: Theme.of(context).accentColor.withOpacity(0.3),
       borderSide: BorderSide(
-        color: Theme.of(context).buttonColor,
+        color: Theme.of(context).accentColor,
       ),
         onPressed: () => Navigator.pushNamed(context, nextRoute),
-      textColor: Theme.of(context).buttonColor,
+      textColor: Theme.of(context).accentColor,
     );
     // TODO Normal button not this
   }

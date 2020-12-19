@@ -1,31 +1,43 @@
 library beautiful_forms;
 
-import 'package:beautiful_forms/model/form_page_schema.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:beautiful_forms/model/page_schema.dart';
 
-part 'form_schema.g.dart';
-
-@JsonSerializable(nullable: false)
 class FormSchema {
-  final int accentColor;
+  final int color1;
+  final int color2;
   final String fontFamily1;
   final String fontFamily2;
-  final String initialRoute;
+  final String initialPage;
   final List<FormPageSchema> pagesSchemas;
-  final int primaryColor;
   final String title;
 
-  FormSchema(
-      {this.accentColor,
-      this.fontFamily1,
-      this.fontFamily2,
-      this.initialRoute,
-      this.pagesSchemas,
-      this.primaryColor,
-      this.title});
+  FormSchema(this.color1, this.color2, this.fontFamily1, this.fontFamily2,
+      this.initialPage, this.pagesSchemas, this.title);
 
-  factory FormSchema.fromJson(Map<String, dynamic> json) =>
-      _$FormSchemaFromJson(json);
+  FormSchema.fromJson(Map<String, dynamic> json)
+      : color1 = json['color1'],
+        color2 = json['color2'],
+        fontFamily1 = json['fontFamily1'],
+        fontFamily2 = json['fontFamily2'],
+        initialPage = json['initialPage'],
+        pagesSchemas = json['pagesSchemas']
+            .map<FormPageSchema>((e) => FormSchema.getPage(e['type'], e['data']))
+            .toList(),
+        title = json['title'];
 
-  Map<String, dynamic> toJson() => _$FormSchemaToJson(this);
+  static FormPageSchema getPage(type, Map<String, dynamic> data) {
+    switch (type) {
+      case 'PortraitPageSchema':
+        return PortraitPageSchema.fromJson(data);
+        break;
+      case 'OptionInputPageSchema':
+        return OptionInputPageSchema.fromJson(data);
+        break;
+      case 'StringFieldInputPageSchema':
+        return StringFieldInputPageSchema.fromJson(data);
+        break;
+      default:
+        throw Exception('Not valid page');
+    }
+  }
 }

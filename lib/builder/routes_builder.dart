@@ -1,13 +1,14 @@
 import 'package:beautiful_forms/builder/page_builder.dart';
-import 'package:beautiful_forms/model/form_schema.dart';
+import 'package:beautiful_forms/model/page_schema.dart';
 import 'package:flutter/material.dart';
 
 class RoutesBuilder {
-  static Map<String, Widget Function(BuildContext)> buildRoutes(
-      context, FormSchema formSchema) {
+  static Map<String, Widget Function(BuildContext)> buildRoutes(context, List<FormPageSchema> pagesSchemas) {
     Map<String, Widget Function(BuildContext)> routes = {};
-    formSchema.pagesSchemas.asMap().forEach((i, schema) => routes.addAll(
-        {schema.route: (context) => PageBuilder.fromSchema(schema, i)}));
+    pagesSchemas.asMap().forEach((i, pageSchema) => routes.addAll({
+          '/${pageSchema.name}': (context) =>
+              PageBuilder.fromSchema(pageSchema, i)
+        }));
     return routes;
   }
 }

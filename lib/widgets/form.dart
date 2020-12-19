@@ -1,34 +1,39 @@
 library beautiful_forms;
 
 import 'package:beautiful_forms/builder/routes_builder.dart';
-import 'package:beautiful_forms/model/form_schema.dart';
+import 'package:beautiful_forms/model/page_schema.dart';
+import 'package:beautiful_forms/widgets/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
 class Form extends StatelessWidget {
-  final FormSchema schema;
+  final String title;
+  final int primaryColor;
+  final int secondaryColor;
+  final String fontFamily1;
+  final String fontFamily2;
+  final String initialPage;
+  final List<FormPageSchema> pagesSchemas;
 
-  Form(this.schema);
+  Form({
+    this.title,
+    this.primaryColor,
+    this.secondaryColor,
+    this.fontFamily1,
+    this.fontFamily2,
+    this.initialPage,
+    this.pagesSchemas,
+  });
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: schema.title,
-      theme: ThemeData(
-        accentColor: Color(schema.accentColor),
-        primaryColor: Color(schema.primaryColor),
-        backgroundColor: Color(schema.primaryColor),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        textTheme: TextTheme(
-          headline1:  GoogleFonts.getFont(schema.fontFamily1, color: Colors.white),
-          bodyText1: GoogleFonts.getFont(schema.fontFamily2, color: Colors.white, fontSize: 24),
-          bodyText2: GoogleFonts.getFont(schema.fontFamily1, color: Colors.white70, fontSize: 20, height: 1.3),
-          button: GoogleFonts.getFont(schema.fontFamily2, color: Color(schema.primaryColor), fontWeight: FontWeight.w500, fontSize: 18),
-        ),
-        buttonColor: Color(schema.accentColor),
-      ),
-      routes: RoutesBuilder.buildRoutes(context, schema),
-      initialRoute: schema.initialRoute,
+      title: title,
+      theme: ThemeProvider.getThemeData(
+          primaryColor: primaryColor,
+          secondaryColor: secondaryColor,
+          fontFamily1: fontFamily1,
+          fontFamily2: fontFamily2),
+      routes: RoutesBuilder.buildRoutes(context, pagesSchemas),
+      initialRoute: '/$initialPage',
     );
   }
 }

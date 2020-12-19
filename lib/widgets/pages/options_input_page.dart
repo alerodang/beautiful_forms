@@ -8,12 +8,9 @@ import 'package:flutter/services.dart';
 
 class OptionInputPage extends InputPage {
   static InputType pageType = InputType.option;
-  final int number;
-  final String question;
-  final String text;
   final List<Option> options;
 
-  OptionInputPage({this.number, this.question, this.text, this.options});
+  OptionInputPage({this.options, question, text, nextRoute, name, route, number}) : super(question: question, text: text, nextRoute: nextRoute, name: name, route: route, number: number);
 
   @override
   Widget build(BuildContext context) {

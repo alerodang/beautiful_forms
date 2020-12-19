@@ -1,22 +1,14 @@
-import 'package:beautiful_forms/model/pages/page_schema.dart';
-import 'package:flutter/material.dart';
+import 'package:beautiful_forms/widgets/pages/form_page.dart';
 
-abstract class FormPage extends StatelessWidget {
-  final String nextRoute;
-  final String name;
-  final String route;
-  final int number;
+abstract class InputPage extends FormPage {
+  static InputType inputType;
+  final String question;
+  final String text;
 
-  FormPage({this.nextRoute, this.name, this.route, this.number});
+  InputPage({this.question, this.text, nextRoute, name, route, number}): super(nextRoute: nextRoute, name: name, route: route, number: number);
 }
 
 enum InputType {
-  text,
+  field,
   option
-}
-
-enum TextInputType {
-  number,
-  string,
-  phone
 }

@@ -3,82 +3,58 @@ import 'package:beautiful_forms/model/form_schema.dart';
 import 'package:flutter/material.dart';
 
 FormSchema schema = FormSchema.fromJson({
-  'title': 'First Form',
-  'primaryColor': 0xff000000,
-  'accentColor': 0xfff3cd59,
-  'fontFamily1': 'Karla',
-  'fontFamily2': 'Roboto',
-  'initialRoute': '/',
-  'pagesSchemas': [
+  "title": "Foo From",
+  "color1": 0xff000000,
+  "color2": 0xfff3cd59,
+  "fontFamily1": "Karla",
+  "fontFamily2": "Roboto",
+  "initialPage": "portada",
+  "pagesSchemas": [
     {
-      'type': 'portrait',
-      'name': 'start',
-      'route': '/',
-      'imageRoute': 'assets/images/logo.png',
-      'restaurantName': 'Tasca Galileo',
-      'nextRoute': '/name',
-      'options': [],
+      "type": "PortraitPageSchema",
+      "data": {
+        "name": "portada",
+        "text": "", // TODO
+        "restaurantName": "Tasca Galileo",
+        "nextPage": "nombre",
+      },
     },
     {
-      'type': 'question',
-      'inputType': 'string',
-      'name': 'name',
-      'route': '/name',
-      'question': '¿Cuál es tu nombre?',
-      'options': [],
-      'text': 'Introduce tu nombre y apellidos',
-      'accentColor': 0xfff3cd59,
-      'nextRoute': '/telefono'
+      "type": "StringFieldInputPageSchema",
+      "data": {
+        "inputType": "string",
+        "name": "nombre",
+        "question": "¿Cuál es tu nombre?",
+        "text": "Introduce tu nombre y apellidos",
+        "nextPage": "tamaño-de-mesa",
+      }
     },
     {
-      'type': 'question',
-      'inputType': 'number',
-      'name': 'telefono',
-      'route': '/telefono',
-      'question': 'Nosotros te avisamos',
-      'options': [],
-      'text': 'Introduce tu número de teléfono',
-      'accentColor': 0xfff3cd59,
-      'nextRoute': '/personas'
+      "type": "NumberFieldInputPageSchema",
+      "data": {
+        "inputType": "number",
+        "name": "tamaño-de-mesa",
+        "question": "¿Cuántos sois?",
+        "text": "Selecciona el tamaño de la mesa",
+        "nextPage": "zona",
+      }
     },
     {
-      'type': 'question',
-      'inputType': 'number',
-      'name': 'personas',
-      'route': '/personas',
-      'question': '¿Cuántos sois?',
-      'options': [],
-      'text': 'Dinos el tamaño de la mesa',
-      'accentColor': 0xfff3cd59,
-      'nextRoute': '/zona'
-    },
-    {
-      'type': 'options',
-      'inputType': 'string',
-      'name': 'zona',
-      'route': '/zona',
-      'question': '¿Dónde quieres comer?',
-      'options': [
-        {'text': 'terraza', 'value': 'outdoor'},
-        {'text': 'interior', 'value': 'indoor'},
-        {'text': 'indiferente', 'value': 'no-preference'},
-      ],
-      'accentColor': 0xfff3cd59,
-    },
-    {
-      'type': 'options',
-      'inputType': 'string',
-      'name': 'zona',
-      'route': '/zona',
-      'question': '¿Dónde quieres comer?',
-      'options': [
-        {'text': 'comer', 'value': 'outdoor'},
-        {'text': 'tomar algo', 'value': 'indoor'},
-        {'text': 'copeo', 'value': 'indoor'},
-      ],
-      'accentColor': 0xfff3cd59,
+      "type": "OptionInputPageSchema",
+      "data": {
+        "inputType": "string",
+        "name": "zona",
+        "question": "¿Dónde quieres comer?",
+        "text": 'Elige una opción',
+        "options": [
+          {"text": "comer", "value": "outdoor"},
+          {"text": "tomar algo", "value": "indoor"},
+          {"text": "copeo", "value": "indoor"}
+        ],
+        "accentColor": "0xfff3cd59"
+      }
     }
-  ],
+  ]
 });
 
 Future<void> main() async {

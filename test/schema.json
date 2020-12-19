@@ -1,0 +1,42 @@
+{
+  "title": "Foo From",
+  "color1": "0xff000000",
+  "color2": "0xfff3cd59",
+  "fontFamily1": "Karla",
+  "fontFamily2": "Roboto",
+  "initialPage": "portada",
+  "pagesSchemas": [
+    {
+      "type": "portrait",
+      "name": "portada",
+      "imageRoute": "assets/images/logo.png",
+      "restaurantName": "Tasca Galileo",
+      "nextPage": "nombre",
+      "options": []
+    },
+    {
+      "type": "question",
+      "inputType": "string",
+      "name": "name",
+      "route": "/name",
+      "question": "¿Cuál es tu nombre?",
+      "options": [],
+      "text": "Introduce tu nombre y apellidos",
+      "accentColor": "0xfff3cd59",
+      "nextRoute": "/telefono"
+    },
+    {
+      "type": "options",
+      "inputType": "string",
+      "name": "zona",
+      "route": "/zona",
+      "question": "¿Dónde quieres comer?",
+      "options": [
+        {"text": "comer", "value": "outdoor"},
+        {"text": "tomar algo", "value": "indoor"},
+        {"text": "copeo", "value": "indoor"}
+      ],
+      "accentColor": "0xfff3cd59"
+    }
+  ]
+}

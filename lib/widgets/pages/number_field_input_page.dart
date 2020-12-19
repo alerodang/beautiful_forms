@@ -1,5 +1,6 @@
 import 'package:beautiful_forms/widgets/elements/next_button.dart';
 import 'package:beautiful_forms/widgets/elements/question_info_text.dart';
+import 'package:beautiful_forms/widgets/elements/question_number_input.dart';
 import 'package:beautiful_forms/widgets/elements/question_text.dart';
 import 'package:beautiful_forms/widgets/elements/question_text_input.dart';
 import 'package:beautiful_forms/widgets/elements/submit_button.dart';
@@ -7,11 +8,11 @@ import 'package:beautiful_forms/widgets/pages/field_input_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class StringFieldInputPage extends FieldInputPage {
+class NumberFieldInputPage extends FieldInputPage {
   static FieldInputType fieldInputType = FieldInputType.string;
 
 
-  StringFieldInputPage({question, text, nextRoute, name, route, number}) : super(question: question, text: text, nextRoute: nextRoute, name: name, route: route, number: number);
+  NumberFieldInputPage({question, text, nextRoute, name, route, number}) : super(question: question, text: text, nextRoute: nextRoute, name: name, route: route, number: number);
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +41,7 @@ class StringFieldInputPage extends FieldInputPage {
                 QuestionInfoText(text: text),
                 Divider(height: 10),
                 Divider(height: 10),
-                QuestionTextInput(color: Theme.of(context).accentColor),
+                QuestionNumberInput(color: Theme.of(context).accentColor),
                 nextRoute != null
                     ? NextButton(
                         message: 'Siguiente', nextRoute: nextRoute)

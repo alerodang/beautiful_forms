@@ -10,7 +10,7 @@ class SubmitButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 43, top: 16),
       child: FlatButton(
-        color: Theme.of(context).buttonColor,
+        color: Theme.of(context).accentColor,
         onPressed: () => {}, // TODO
         child: Padding(
           padding: const EdgeInsets.all(8.0),

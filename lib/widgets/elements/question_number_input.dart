@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class QuestionTextInput extends StatelessWidget {
+class QuestionNumberInput extends StatelessWidget {
   final Color color;
 
-  QuestionTextInput({this.color});
+  QuestionNumberInput({this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,6 @@ class QuestionTextInput extends StatelessWidget {
       padding: EdgeInsets.only(left: 43),
       child: TextField(
         onChanged: (text) => print('text'),
-        //TODO get data do scheduler
         style: TextStyle(
             fontSize: 24,
             color: color,

@@ -19,7 +19,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  json_serializable: ^3.5.1
   build_runner: ^1.0.0
 
 flutter:

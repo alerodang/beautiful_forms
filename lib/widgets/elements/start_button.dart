@@ -9,7 +9,7 @@ class StartButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlatButton(
-      color: Theme.of(context).buttonColor,
+      color: Theme.of(context).accentColor,
       onPressed: () => Navigator.pushNamed(context, nextRoute),
       child: Padding(
         padding: const EdgeInsets.all(8.0),

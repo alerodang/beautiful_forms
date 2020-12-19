@@ -90,10 +90,10 @@ class StringFieldInputPageSchema extends FieldInputPageSchema {
   }
 }
 
-class NumberFieldPageSchema extends FieldInputPageSchema {
+class NumberFieldInputPageSchema extends FieldInputPageSchema {
   static FieldInputType textInputType = FieldInputType.number;
 
-  NumberFieldPageSchema({
+  NumberFieldInputPageSchema({
     question,
     text,
     name,
@@ -105,8 +105,8 @@ class NumberFieldPageSchema extends FieldInputPageSchema {
           nextPage: nextPage,
         );
 
-  static NumberFieldPageSchema fromJson(Map<String, dynamic> json) {
-    return new NumberFieldPageSchema(
+  static NumberFieldInputPageSchema fromJson(Map<String, dynamic> json) {
+    return new NumberFieldInputPageSchema(
         question: json['question'],
         text: json['text'],
         name: json['name'],
@@ -147,11 +147,11 @@ class OptionInputPageSchema extends InputPageSchema {
 
   static OptionInputPageSchema fromJson(Map<String, dynamic> json) {
     return new OptionInputPageSchema(
-        options:
-            json['options'].map((e) => Option(text: e.text, value: e.value)),
-        text: json['text'],
         question: json['question'],
         name: json['name'],
+        options: json['options']
+            .map<Option>((e) => Option(text: e['text'], value: e['value'])).toList(),
+        text: json['text'],
         nextPage: json['nextPage']);
   }
 }

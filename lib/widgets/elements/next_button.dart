@@ -11,7 +11,7 @@ class NextButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 43, top: 16),
       child: FlatButton(
-        color: Theme.of(context).buttonColor,
+        color: Theme.of(context).accentColor,
         onPressed: () => Navigator.pushNamed(context, nextRoute),
         child: Padding(
           padding: const EdgeInsets.all(8.0),

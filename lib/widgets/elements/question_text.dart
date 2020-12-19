@@ -13,7 +13,7 @@ class QuestionText extends StatelessWidget {
       children: [
         Container(width: 43, child: Text('$number -', style: TextStyle(
           fontSize: 24,
-          color: accentColor,
+          color: Theme.of(context).accentColor,
         ),)),
         Container(
           child: Text(
