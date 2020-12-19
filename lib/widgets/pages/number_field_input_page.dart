@@ -1,18 +1,17 @@
-import 'package:beautiful_forms/model/form_page_schema.dart';
 import 'package:beautiful_forms/widgets/elements/next_button.dart';
 import 'package:beautiful_forms/widgets/elements/question_info_text.dart';
 import 'package:beautiful_forms/widgets/elements/question_text.dart';
 import 'package:beautiful_forms/widgets/elements/question_text_input.dart';
 import 'package:beautiful_forms/widgets/elements/submit_button.dart';
-import 'package:beautiful_forms/widgets/form_page.dart';
+import 'package:beautiful_forms/widgets/pages/field_input_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class QuestionPage extends FormPage {
-  final FormPageSchema schema;
-  final int number;
+class StringFieldInputPage extends FieldInputPage {
+  static FieldInputType fieldInputType = FieldInputType.string;
 
-  QuestionPage({this.schema, this.number}) : super(schema: schema);
+
+  StringFieldInputPage({question, text, nextRoute, name, route, number}) : super(question: question, text: text, nextRoute: nextRoute, name: name, route: route, number: number);
 
   @override
   Widget build(BuildContext context) {
@@ -33,18 +32,18 @@ class QuestionPage extends FormPage {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 QuestionText(
-                  question: schema.question,
+                  question: question,
                   number: number,
-                  accentColor: Color(schema.accentColor),
+                  accentColor: Theme.of(context).accentColor,
                 ),
                 Divider(height: 10),
-                QuestionInfoText(text: schema.text),
+                QuestionInfoText(text: text),
                 Divider(height: 10),
                 Divider(height: 10),
-                QuestionTextInput(color: Color(schema.accentColor)),
-                schema.nextRoute != null
+                QuestionTextInput(color: Theme.of(context).accentColor),
+                nextRoute != null
                     ? NextButton(
-                        message: 'Siguiente', nextRoute: schema.nextRoute)
+                        message: 'Siguiente', nextRoute: nextRoute)
                     : SubmitButton(
                         message: 'Enviar Respuestas')
               ]),
