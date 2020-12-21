@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class QuestionNumberInput extends StatelessWidget {
   final Color color;
@@ -10,7 +11,8 @@ class QuestionNumberInput extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(left: 43),
       child: TextField(
-        onChanged: (text) => print('text'),
+        inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+        keyboardType: TextInputType.number,
         style: TextStyle(
             fontSize: 24,
             color: color,
@@ -29,7 +31,6 @@ class QuestionNumberInput extends StatelessWidget {
               color: color.withOpacity(0.3),
               fontWeight: FontWeight.w100),
         ),
-        keyboardType: TextInputType.text,
       ),
     );
   }

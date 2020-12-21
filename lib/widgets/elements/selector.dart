@@ -1,4 +1,3 @@
-import 'package:basic_utils/basic_utils.dart';
 import 'package:beautiful_forms/model/option.dart';
 import 'package:beautiful_forms/widgets/elements/selector_button.dart';
 import 'package:flutter/material.dart';

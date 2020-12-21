@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class QuestionTextInput extends StatelessWidget {
   final Color color;
@@ -10,8 +11,8 @@ class QuestionTextInput extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(left: 43),
       child: TextField(
-        onChanged: (text) => print('text'),
-        //TODO get data do scheduler
+        inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[A-Za-z\s]'))],
+        keyboardType: TextInputType.text,
         style: TextStyle(
             fontSize: 24,
             color: color,
@@ -30,7 +31,6 @@ class QuestionTextInput extends StatelessWidget {
               color: color.withOpacity(0.3),
               fontWeight: FontWeight.w100),
         ),
-        keyboardType: TextInputType.text,
       ),
     );
   }

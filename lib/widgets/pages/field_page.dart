@@ -1,10 +1,4 @@
-import 'package:beautiful_forms/model/option.dart';
-import 'package:beautiful_forms/widgets/elements/selector.dart';
-import 'package:beautiful_forms/widgets/elements/question_info_text.dart';
-import 'package:beautiful_forms/widgets/elements/question_text.dart';
 import 'package:beautiful_forms/widgets/pages/input_page.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 abstract class FieldInputPage extends InputPage {
   static InputType pageType = InputType.field;
