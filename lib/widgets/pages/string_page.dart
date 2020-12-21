@@ -3,15 +3,23 @@ import 'package:beautiful_forms/widgets/elements/question_info_text.dart';
 import 'package:beautiful_forms/widgets/elements/question_text.dart';
 import 'package:beautiful_forms/widgets/elements/question_text_input.dart';
 import 'package:beautiful_forms/widgets/elements/submit_button.dart';
-import 'package:beautiful_forms/widgets/pages/field_input_page.dart';
+import 'package:beautiful_forms/widgets/pages/field_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:beautiful_forms/widgets/providers/form_fields_notifier_provider.dart';
+import 'package:provider/provider.dart';
 
-class StringFieldInputPage extends FieldInputPage {
+class StringPage extends FieldPage {
   static FieldInputType fieldInputType = FieldInputType.string;
 
-
-  StringFieldInputPage({question, text, nextRoute, name, route, number}) : super(question: question, text: text, nextRoute: nextRoute, name: name, route: route, number: number);
+  StringPage({question, text, nextRoute, name, route, number})
+      : super(
+            question: question,
+            text: text,
+            nextRoute: nextRoute,
+            name: name,
+            route: route,
+            number: number);
 
   @override
   Widget build(BuildContext context) {
@@ -40,12 +48,15 @@ class StringFieldInputPage extends FieldInputPage {
                 QuestionInfoText(text: text),
                 Divider(height: 10),
                 Divider(height: 10),
-                QuestionTextInput(color: Theme.of(context).accentColor),
+                QuestionTextInput(
+                  color: Theme.of(context).accentColor,
+                  onChange: Provider.of<FormFieldsNotifierProvider>(context)
+                      .updateData,
+                  field: this.name,
+                ),
                 nextRoute != null
-                    ? NextButton(
-                        message: 'Siguiente', nextRoute: nextRoute)
-                    : SubmitButton(
-                        message: 'Enviar Respuestas')
+                    ? NextButton(message: 'Siguiente', nextRoute: nextRoute)
+                    : SubmitButton(message: 'Enviar Respuestas')
               ]),
         ),
       ]),

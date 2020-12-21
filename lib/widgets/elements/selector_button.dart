@@ -6,8 +6,11 @@ class SelectorButton extends StatelessWidget {
   final Option option;
   final String letter;
   final String nextRoute;
+  final Function(String, dynamic) onChange;
+  final String field;
 
-  SelectorButton({this.option, this.letter, this.nextRoute});
+  SelectorButton(
+      {this.option, this.letter, this.nextRoute, this.onChange, this.field});
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +27,11 @@ class SelectorButton extends StatelessWidget {
               margin: EdgeInsets.all(8),
               width: 20,
               height: 20,
-              child: Center(
-                  child:
-                  Text(letter, style: TextStyle(fontSize: 12))),
+              child:
+                  Center(child: Text(letter, style: TextStyle(fontSize: 12))),
               decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor,
-                border: Border.all(
-                    color: Theme.of(context).accentColor),
+                border: Border.all(color: Theme.of(context).accentColor),
               ),
             ),
             Text(
@@ -43,7 +44,7 @@ class SelectorButton extends StatelessWidget {
       borderSide: BorderSide(
         color: Theme.of(context).accentColor,
       ),
-        onPressed: () => Navigator.pushNamed(context, nextRoute),
+      onPressed: () => {this.onChange(field, option.value), Navigator.pushNamed(context, nextRoute)},
       textColor: Theme.of(context).accentColor,
     );
     // TODO Normal button not this

@@ -1,4 +1,3 @@
-import 'package:beautiful_forms/model/page_schema.dart';
 import 'package:flutter/material.dart';
 
 abstract class FormPage extends StatelessWidget {

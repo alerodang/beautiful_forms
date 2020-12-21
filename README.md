@@ -1,6 +1,6 @@
 # beautiful_forms
 
-A new Flutter package for creating beautiful forms.
+This package is used for creating beautiful forms for mister restaurant app. This package allows us to build forms from a json file.
 
 ## Getting Started
 
@@ -8,6 +8,5 @@ A new Flutter package for creating beautiful forms.
 
 ## Contribution instructions
 
-* TODO: Explain code structure
+* TODO
 
-Note: Run ```flutter packages pub run build_runner build``` every time you edit model files. * TODO: put this in a run_build.dart file under tool folder (https://dart.dev/tools/pub/package-layout#internal-tools-and-scripts)

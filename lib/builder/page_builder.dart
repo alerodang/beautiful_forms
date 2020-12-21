@@ -1,9 +1,11 @@
 import 'package:beautiful_forms/model/page_schema.dart';
 import 'package:beautiful_forms/widgets/pages/form_page.dart';
-import 'package:beautiful_forms/widgets/pages/number_field_input_page.dart';
-import 'package:beautiful_forms/widgets/pages/options_input_page.dart';
+import 'package:beautiful_forms/widgets/pages/number_page.dart';
+import 'package:beautiful_forms/widgets/pages/options_page.dart';
+import 'package:beautiful_forms/widgets/pages/phone_number_page.dart';
 import 'package:beautiful_forms/widgets/pages/portrait_page.dart';
-import 'package:beautiful_forms/widgets/pages/string_field_input_page.dart';
+import 'package:beautiful_forms/widgets/pages/string_page.dart';
+import 'package:beautiful_forms/widgets/pages/end_page.dart';
 
 class PageBuilder {
 
@@ -13,16 +15,22 @@ class PageBuilder {
         return PortraitPage(number: number, nextRoute: '/${schema.nextPage}', name: schema.name, route: '/${schema.name}', restaurantName: schema.restaurantName);
         break;
       case StringFieldInputPageSchema:
-        return StringFieldInputPage(number: number, nextRoute: '/${schema.nextPage}', name: schema.name, route: '/${schema.name}', question: schema.question, text: schema.text,);
+        return StringPage(number: number, nextRoute: '/${schema.nextPage}', name: schema.name, route: '/${schema.name}', question: schema.question, text: schema.text,);
         break;
       case NumberFieldInputPageSchema:
-        return NumberFieldInputPage(number: number, nextRoute: '/${schema.nextPage}', name: schema.name, route: '/${schema.name}', question: schema.question, text: schema.text,);
+        return NumberPage(number: number, nextRoute: '/${schema.nextPage}', name: schema.name, route: '/${schema.name}', question: schema.question, text: schema.text,);
+        break;
+      case PhoneNumberFieldInputPageSchema:
+        return PhoneNumberPage(number: number, nextRoute: '/${schema.nextPage}', name: schema.name, route: '/${schema.name}', question: schema.question, text: schema.text,);
         break;
       case OptionInputPageSchema:
-        return OptionInputPage(number: number, nextRoute: '/${schema.nextPage}', name: schema.name, route: '/${schema.name}', question: schema.question, text: schema.text, options: schema.options);
+        return OptionPage(number: number, nextRoute: '/${schema.nextPage}', name: schema.name, route: '/${schema.name}', question: schema.question, text: schema.text, options: schema.options);
+        break;
+      case EndPageSchema:
+        return EndPage(number: number, nextRoute: '/${schema.nextPage}', name: schema.name, route: '/${schema.name}');
         break;
       default:
-        throw new Exception('No valid page type: ' + schema.type);
+        throw new Exception('No valid page schema type: ' + schema.type);
     }
   }
 }

@@ -1,5 +1,5 @@
 import 'package:beautiful_forms/model/option.dart';
-import 'package:beautiful_forms/widgets/pages/field_input_page.dart';
+import 'package:beautiful_forms/widgets/pages/field_page.dart';
 import 'package:beautiful_forms/widgets/pages/input_page.dart';
 
 class FormPageSchema {
@@ -114,10 +114,10 @@ class NumberFieldInputPageSchema extends FieldInputPageSchema {
   }
 }
 
-class PhoneNumberInputPageSchema extends FieldInputPageSchema {
+class PhoneNumberFieldInputPageSchema extends FieldInputPageSchema {
   static FieldInputType textInputType = FieldInputType.phone;
 
-  PhoneNumberInputPageSchema({
+  PhoneNumberFieldInputPageSchema({
     question,
     text,
     name,
@@ -129,8 +129,8 @@ class PhoneNumberInputPageSchema extends FieldInputPageSchema {
           nextPage: nextPage,
         );
 
-  static PhoneNumberInputPageSchema fromJson(Map<String, dynamic> json) {
-    return new PhoneNumberInputPageSchema(
+  static PhoneNumberFieldInputPageSchema fromJson(Map<String, dynamic> json) {
+    return new PhoneNumberFieldInputPageSchema(
         question: json['question'],
         text: json['text'],
         name: json['name'],
@@ -150,8 +150,24 @@ class OptionInputPageSchema extends InputPageSchema {
         question: json['question'],
         name: json['name'],
         options: json['options']
-            .map<Option>((e) => Option(text: e['text'], value: e['value'])).toList(),
+            .map<Option>((e) => Option(text: e['text'], value: e['value']))
+            .toList(),
         text: json['text'],
         nextPage: json['nextPage']);
+  }
+}
+
+class EndPageSchema extends InputPageSchema {
+  final String text;
+
+  EndPageSchema({this.text, name, nextPage})
+      : super(name: name, nextPage: nextPage);
+
+  static EndPageSchema fromJson(Map<String, dynamic> json) {
+    return new EndPageSchema(
+      text: json['text'],
+      name: json['name'],
+      nextPage: json['nextPage'],
+    );
   }
 }

@@ -3,8 +3,10 @@ import 'package:flutter/services.dart';
 
 class QuestionNumberInput extends StatelessWidget {
   final Color color;
+  final Function(String, dynamic) onChange;
+  final String field;
 
-  QuestionNumberInput({this.color});
+  QuestionNumberInput({this.color, this.onChange, this.field});
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +20,7 @@ class QuestionNumberInput extends StatelessWidget {
             color: color,
             fontFamily: Theme.of(context).textTheme.bodyText1.fontFamily),
         textAlign: TextAlign.left,
+          onChanged: (e) => this.onChange(field, e),
         decoration: InputDecoration(
           enabledBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: color.withOpacity(0.3)),

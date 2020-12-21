@@ -6,11 +6,18 @@ import 'package:beautiful_forms/widgets/pages/input_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class OptionInputPage extends InputPage {
+class OptionPage extends InputPage {
   static InputType pageType = InputType.option;
   final List<Option> options;
 
-  OptionInputPage({this.options, question, text, nextRoute, name, route, number}) : super(question: question, text: text, nextRoute: nextRoute, name: name, route: route, number: number);
+  OptionPage({this.options, question, text, nextRoute, name, route, number})
+      : super(
+            question: question,
+            text: text,
+            nextRoute: nextRoute,
+            name: name,
+            route: route,
+            number: number);
 
   @override
   Widget build(BuildContext context) {
@@ -30,15 +37,17 @@ class OptionInputPage extends InputPage {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                QuestionText(
-                  question: question,
-                  number: number
-                ),
+                QuestionText(question: question, number: number),
                 Divider(height: 10),
                 QuestionInfoText(text: text),
                 Divider(height: 10),
                 Divider(height: 10),
-                Selector(color: Theme.of(context).accentColor, options: options, nextRoute: nextRoute),
+                Selector(
+                  color: Theme.of(context).accentColor,
+                  options: options,
+                  nextRoute: nextRoute,
+                  field: name,
+                ),
               ]),
         ),
       ]),

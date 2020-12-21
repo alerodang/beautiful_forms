@@ -1,6 +1,9 @@
 import 'package:beautiful_forms/builder/form_builder.dart';
+import 'package:beautiful_forms/widgets/providers/form_fields_notifier_provider.dart';
+
 import 'package:beautiful_forms/model/form_schema.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 FormSchema schema = FormSchema.fromJson({
   "title": "Foo From",
@@ -39,7 +42,7 @@ FormSchema schema = FormSchema.fromJson({
         "name": "tamaño-de-mesa",
         "question": "¿Cuántos sois?",
         "options": [],
-        "text": "Selecciona el tamaño de la mesa",
+        "text": "Introduce el tamaño de la mesa",
         "nextPage": "phone-number",
       }
     },
@@ -62,20 +65,45 @@ FormSchema schema = FormSchema.fromJson({
         "question": "¿Dónde quieres comer?",
         "text": 'Elige una opción',
         "options": [
-          {"text": "comer", "value": "outdoor"},
-          {"text": "tomar algo", "value": "indoor"},
-          {"text": "copeo", "value": "indoor"}
+          {"text": "mesa", "value": "table"},
+          {"text": "barra", "value": "bar"},
         ],
-        "accentColor": "0xfff3cd59"
+        "nextPage": "accion",
+      }
+    },
+    {
+      "type": "OptionInputPageSchema",
+      "data": {
+        "inputType": "string",
+        "name": "accion",
+        "question": "¿Qué vas a hacer?",
+        "text": 'Elige una opción',
+        "options": [
+          {"text": "comer", "value": "eat"},
+          {"text": "tomar algo", "value": "drink"},
+        ],
+        "nextPage": "end",
+      }
+    },
+    {
+      "type": "EndPageSchema",
+      "data": {
+        "inputType": "string",
+        "name": "end",
+        "text": '¡Muchas gracias!',
       }
     }
   ]
 });
 
 Future<void> main() async {
-  runApp(FormBuilder.fromSchema(schema));
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+            create: (_) => FormFieldsNotifierProvider(schema.pagesSchemas)),
+      ],
+      child: FormBuilder.fromSchema(schema),
+    ),
+  );
 }
-
-// TODO añadir validación
-// TODO añadir envio de formularios
-// TODO all specific conf to an object call portrait params and we validate it in the builder

@@ -3,10 +3,8 @@ import 'package:beautiful_forms/widgets/pages/form_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class PortraitPage extends FormPage {
-  final String restaurantName;
-
-  PortraitPage({nextRoute, name, route, number, this.restaurantName})
+class EndPage extends FormPage {
+  EndPage({nextRoute, name, route, number})
       : super(nextRoute: nextRoute, name: name, route: route, number: number);
 
   @override
@@ -38,7 +36,7 @@ class PortraitPage extends FormPage {
             ),
             Divider(),
             Text(
-              'Estas a punto de entrar en la cola de $restaurantName. Una vez te apuntes te avisaremos cuando sea tu turno para que puedas aprovechar el tiempo. ',
+              'Estas a punto de entrar en la cola de ----------. Una vez te apuntes te avisaremos cuando sea tu turno para que puedas aprovechar el tiempo. ',
               style: Theme.of(context).textTheme.bodyText2,
               textAlign: TextAlign.center,
             ),

@@ -5,8 +5,11 @@ const List<String> countries = ['+34', 'Otro'];
 
 class QuestionPhoneNumberInput extends StatelessWidget {
   final Color color;
+  final Function(String, dynamic) onChange;
+  final String field;
 
-  QuestionPhoneNumberInput({this.color});
+
+  QuestionPhoneNumberInput({this.color, this.onChange, this.field});
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +57,7 @@ class QuestionPhoneNumberInput extends StatelessWidget {
                   color: color,
                   fontFamily: Theme.of(context).textTheme.bodyText1.fontFamily),
               textAlign: TextAlign.left,
+              onChanged: (e) => this.onChange(field, e),
               decoration: InputDecoration(
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: color.withOpacity(0.3)),

@@ -21,7 +21,8 @@ class FormSchema {
         fontFamily2 = json['fontFamily2'],
         initialPage = json['initialPage'],
         pagesSchemas = json['pagesSchemas']
-            .map<FormPageSchema>((e) => FormSchema.getPage(e['type'], e['data']))
+            .map<FormPageSchema>(
+                (e) => FormSchema.getPage(e['type'], e['data']))
             .toList(),
         title = json['title'];
 
@@ -36,8 +37,14 @@ class FormSchema {
       case 'StringFieldInputPageSchema':
         return StringFieldInputPageSchema.fromJson(data);
         break;
+      case 'NumberFieldInputPageSchema':
+        return NumberFieldInputPageSchema.fromJson(data);
+        break;
+      case 'PhoneNumberFieldInputPageSchema':
+        return PhoneNumberFieldInputPageSchema.fromJson(data);
+        break;
       default:
-        throw Exception('Not valid page');
+        throw Exception('Not valid page $type');
     }
   }
 }

@@ -5,10 +5,8 @@ abstract class InputPage extends FormPage {
   final String question;
   final String text;
 
-  InputPage({this.question, this.text, nextRoute, name, route, number}): super(nextRoute: nextRoute, name: name, route: route, number: number);
+  InputPage({this.question, this.text, nextRoute, name, route, number})
+      : super(nextRoute: nextRoute, name: name, route: route, number: number);
 }
 
-enum InputType {
-  field,
-  option
-}
+enum InputType { field, option }
