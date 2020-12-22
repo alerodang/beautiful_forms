@@ -1,10 +1,10 @@
 library beautiful_forms;
 
-import 'package:beautiful_forms/beautiful_forms.dart';
+import 'package:beautiful_forms/beautiful_form.dart';
 import 'package:beautiful_forms/model/form_schema.dart';
 
 class FormBuilder {
-  static Form fromSchema(FormSchema schema) => new Form(
+  static BeautifulForm fromSchema(FormSchema schema) => new BeautifulForm(
       title: schema.title,
       primaryColor: schema.color1,
       secondaryColor: schema.color2,

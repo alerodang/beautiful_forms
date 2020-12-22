@@ -1,10 +1,14 @@
-import 'package:beautiful_forms/widgets/elements/start_button.dart';
+import 'package:beautiful_forms/widgets/elements/contact_button.dart';
 import 'package:beautiful_forms/widgets/pages/form_page.dart';
+import 'package:beautiful_forms/widgets/providers/form_fields_notifier_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 class EndPage extends FormPage {
-  EndPage({nextRoute, name, route, number})
+  final String restaurantName;
+
+  EndPage({this.restaurantName, nextRoute, name, route, number})
       : super(nextRoute: nextRoute, name: name, route: route, number: number);
 
   @override
@@ -26,22 +30,15 @@ class EndPage extends FormPage {
               'assets/images/logo.png',
               width: MediaQuery.of(context).size.width * 0.8,
             ),
-            Divider(
-              height: 50,
-            ),
+            Divider(height: 20),
             Text(
-              '¡Bienvenido a la app de los restaurantes!',
-              style: Theme.of(context).textTheme.bodyText1,
-              textAlign: TextAlign.center,
-            ),
-            Divider(),
-            Text(
-              'Estas a punto de entrar en la cola de ----------. Una vez te apuntes te avisaremos cuando sea tu turno para que puedas aprovechar el tiempo. ',
+              '¡Muchas gracias por utilizar Mister Restaurant!',
               style: Theme.of(context).textTheme.bodyText2,
               textAlign: TextAlign.center,
             ),
             Divider(height: 40),
-            StartButton(message: '¡Quiero Apuntarme!', nextRoute: nextRoute),
+            ContactButton(
+                message: 'Contacta con nosotros', nextRoute: nextRoute),
           ]),
         ),
       ]),

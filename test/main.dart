@@ -11,16 +11,16 @@ FormSchema schema = FormSchema.fromJson({
   "color2": 0xfff3cd59,
   "fontFamily1": "Karla",
   "fontFamily2": "Roboto",
-  "initialPage": "portada",
+  "initialPage": "portrait",
   "pagesSchemas": [
     {
       "type": "PortraitPageSchema",
       "data": {
-        "name": "portada",
+        "name": "portrait",
         "text": "", // TODO
         "imageRoute": "assets/images/logo.png",
-        "restaurantName": "Tasca Galileo",
-        "nextPage": "nombre",
+        "restaurantName": "YumYum",
+        "nextPage": "name",
         "options": []
       },
     },
@@ -28,7 +28,7 @@ FormSchema schema = FormSchema.fromJson({
       "type": "StringFieldInputPageSchema",
       "data": {
         "inputType": "string",
-        "name": "nombre",
+        "name": "name",
         "question": "¿Cuál es tu nombre?",
         "options": [],
         "text": "Introduce tu nombre y apellidos",
@@ -43,39 +43,39 @@ FormSchema schema = FormSchema.fromJson({
         "question": "¿Cuántos sois?",
         "options": [],
         "text": "Introduce el tamaño de la mesa",
-        "nextPage": "phone-number",
+        "nextPage": "phoneNumber",
       }
     },
     {
       "type": "PhoneNumberFieldInputPageSchema",
       "data": {
         "inputType": "phone",
-        "name": "phone-number",
+        "name": "phoneNumber",
         "question": "¿Cuál es u número?",
         "options": [],
         "text": "Introduce tu número de teléfono",
-        "nextPage": "zona",
+        "nextPage": "zone",
       }
     },
     {
       "type": "OptionInputPageSchema",
       "data": {
         "inputType": "string",
-        "name": "zona",
+        "name": "zone",
         "question": "¿Dónde quieres comer?",
         "text": 'Elige una opción',
         "options": [
           {"text": "mesa", "value": "table"},
           {"text": "barra", "value": "bar"},
         ],
-        "nextPage": "accion",
+        "nextPage": "type",
       }
     },
     {
       "type": "OptionInputPageSchema",
       "data": {
         "inputType": "string",
-        "name": "accion",
+        "name": "type",
         "question": "¿Qué vas a hacer?",
         "text": 'Elige una opción',
         "options": [
@@ -88,6 +88,7 @@ FormSchema schema = FormSchema.fromJson({
     {
       "type": "EndPageSchema",
       "data": {
+        "restaurantName": "YumYum",
         "inputType": "string",
         "name": "end",
         "text": '¡Muchas gracias!',
@@ -97,11 +98,12 @@ FormSchema schema = FormSchema.fromJson({
 });
 
 Future<void> main() async {
+  FormFieldsNotifierProvider queueSubscriptionProvider = FormFieldsNotifierProvider(schema.pagesSchemas);
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(
-            create: (_) => FormFieldsNotifierProvider(schema.pagesSchemas)),
+            create: (_) => queueSubscriptionProvider),
       ],
       child: FormBuilder.fromSchema(schema),
     ),

@@ -159,15 +159,16 @@ class OptionInputPageSchema extends InputPageSchema {
 
 class EndPageSchema extends InputPageSchema {
   final String text;
+  final String restaurantName;
 
-  EndPageSchema({this.text, name, nextPage})
+  EndPageSchema({this.text, this.restaurantName, name, nextPage})
       : super(name: name, nextPage: nextPage);
 
   static EndPageSchema fromJson(Map<String, dynamic> json) {
     return new EndPageSchema(
-      text: json['text'],
-      name: json['name'],
-      nextPage: json['nextPage'],
-    );
+        text: json['text'],
+        restaurantName: json['restaurantName'],
+        name: json['name'],
+        nextPage: json['nextPage']);
   }
 }

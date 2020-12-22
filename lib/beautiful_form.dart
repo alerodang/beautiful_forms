@@ -5,7 +5,7 @@ import 'package:beautiful_forms/model/page_schema.dart';
 import 'package:beautiful_forms/theme.dart';
 import 'package:flutter/material.dart';
 
-class Form extends StatelessWidget {
+class BeautifulForm extends StatelessWidget {
   final String title;
   final int primaryColor;
   final int secondaryColor;
@@ -14,7 +14,7 @@ class Form extends StatelessWidget {
   final String initialPage;
   final List<FormPageSchema> pagesSchemas;
 
-  Form({
+  BeautifulForm({
     this.title,
     this.primaryColor,
     this.secondaryColor,

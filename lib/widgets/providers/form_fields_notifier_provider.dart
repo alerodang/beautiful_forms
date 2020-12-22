@@ -7,13 +7,12 @@ class FormFieldsNotifierProvider with ChangeNotifier, DiagnosticableTreeMixin {
   FormFieldsNotifierProvider(List<FormPageSchema> pagesSchemas) {
     data = {};
     pagesSchemas.forEach((e) {
-      data.addAll({e.name: null});
+      if (!(<String>['end', 'portrait'].contains(e.name))) data.addAll({e.name: null});
     });
   }
 
   void updateData(String key, dynamic value) {
     data[key] = value;
     notifyListeners();
-    print('<><><><><><><> data: $data');
   }
 }

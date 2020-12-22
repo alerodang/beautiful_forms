@@ -11,8 +11,15 @@ class FormSchema {
   final List<FormPageSchema> pagesSchemas;
   final String title;
 
-  FormSchema(this.color1, this.color2, this.fontFamily1, this.fontFamily2,
-      this.initialPage, this.pagesSchemas, this.title);
+  FormSchema(
+    this.color1,
+    this.color2,
+    this.fontFamily1,
+    this.fontFamily2,
+    this.initialPage,
+    this.pagesSchemas,
+    this.title,
+  );
 
   FormSchema.fromJson(Map<String, dynamic> json)
       : color1 = json['color1'],
@@ -42,6 +49,9 @@ class FormSchema {
         break;
       case 'PhoneNumberFieldInputPageSchema':
         return PhoneNumberFieldInputPageSchema.fromJson(data);
+        break;
+      case 'EndPageSchema':
+        return EndPageSchema.fromJson(data);
         break;
       default:
         throw Exception('Not valid page $type');
