@@ -17,6 +17,12 @@ class EndPage extends FormPage {
       DeviceOrientation.portraitUp,
     ]);
 
+    var provider = Provider.of<FormFieldsNotifierProvider>(context);
+
+//    var formattedData = provider.format(provider.data);
+
+    provider.onSubmit(provider.data);
+
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       body: Row(mainAxisAlignment: MainAxisAlignment.center, children: [

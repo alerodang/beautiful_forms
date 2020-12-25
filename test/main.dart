@@ -1,9 +1,13 @@
+import 'dart:convert';
+
 import 'package:beautiful_forms/builder/form_builder.dart';
 import 'package:beautiful_forms/widgets/providers/form_fields_notifier_provider.dart';
 
 import 'package:beautiful_forms/model/form_schema.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'src/services/QueueService.dart';
 
 FormSchema schema = FormSchema.fromJson({
   "title": "Foo From",
@@ -97,15 +101,59 @@ FormSchema schema = FormSchema.fromJson({
   ]
 });
 
+Function onSubmit = (Map<String, dynamic> formattedData) async => {await QueueService.createSubscription('YumYum', {
+  "subscription": {
+    "consumedAt": null,
+    "customer": {"contactData": {}},
+    "deletedAt": null,
+    "restaurantName": "YumYum",
+    "restaurant": {
+      "owner": {
+        "name": "Ale",
+        "contactData": {
+          "email": "alerodriguezangulo@gmail.com",
+          "phoneNumber": "650021010"
+        }
+      },
+      "messages": [
+        {
+          "name": "Es tu turno",
+          "text":
+          "En breve será tu turno, te recomendamos que te vayas acercando"
+        }
+      ],
+      "location": "location",
+      "filters": [
+        {
+          "name": "Localización",
+          "options": [
+            "interior",
+            "exterior",
+          ]
+        }
+      ],
+      "restaurantName": "YumYum"
+    },
+    "tags": [
+      {"name": "zone"},
+      {"name": "type"}
+    ],
+    "subscribedAt": "20201222133342",
+    "uniqueId": "84615f77-06cc-43b7-9a76-b5361925837b"
+  }
+})};
+
 Future<void> main() async {
-  FormFieldsNotifierProvider queueSubscriptionProvider = FormFieldsNotifierProvider(schema.pagesSchemas);
+  FormFieldsNotifierProvider queueSubscriptionProvider = FormFieldsNotifierProvider(schema.pagesSchemas, onSubmit);
+
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-            create: (_) => queueSubscriptionProvider),
+        ChangeNotifierProvider(create: (_) => queueSubscriptionProvider),
       ],
-      child: FormBuilder.fromSchema(schema),
+      child: FormBuilder.fromSchema(
+        schema,
+      ),
     ),
   );
 }
