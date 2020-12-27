@@ -27,7 +27,7 @@ class PageBuilder {
         return OptionPage(number: number, nextRoute: '/${schema.nextPage}', name: schema.name, route: '/${schema.name}', question: schema.question, text: schema.text, options: schema.options,);
         break;
       case EndPageSchema:
-        return EndPage(number: number, nextRoute: '/${schema.nextPage}', name: schema.name, route: '/${schema.name}', imageRoute: schema.imageRoute, restaurantName: schema.restaurantName,);
+        return EndPage(number: number, nextRoute: '/${schema.nextPage}', name: schema.name, route: '/${schema.name}', imageRoute: schema.imageRoute, restaurantName: schema.restaurantName, text: schema.text,);
         break;
       default:
         throw new Exception('No valid page schema type: ' + schema.type);

@@ -8,8 +8,9 @@ import 'package:provider/provider.dart';
 class EndPage extends FormPage {
   final String restaurantName;
   final String imageRoute;
+  final String text;
 
-  EndPage({this.restaurantName, this.imageRoute, nextRoute, name, route, number})
+  EndPage({this.restaurantName, this.imageRoute, this.text, nextRoute, name, route, number})
       : super(nextRoute: nextRoute, name: name, route: route, number: number);
 
   @override
@@ -39,7 +40,7 @@ class EndPage extends FormPage {
             ),
             Divider(height: 20),
             Text(
-              '¡Muchas gracias por utilizar Mister Restaurant!',
+              text,
               style: Theme.of(context).textTheme.bodyText2,
               textAlign: TextAlign.center,
             ),

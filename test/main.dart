@@ -96,7 +96,7 @@ FormSchema schema = FormSchema.fromJson({
         "inputType": "string",
         "name": "end",
         "imageRoute": "assets/images/app_logo.png",
-        "text": '¡Muchas gracias!',
+        "text": '¡Muchas gracias por utilizar Mister Restaurant!',
       }
     }
   ]
