@@ -15,14 +15,17 @@ class FormPageSchema {
 class PortraitPageSchema extends FormPageSchema {
   final String text;
   final String restaurantName;
+  final String imageRoute;
 
-  PortraitPageSchema({this.text, this.restaurantName, name, nextPage})
+  PortraitPageSchema(
+      {this.text, this.restaurantName, this.imageRoute, name, nextPage})
       : super(name: name, nextPage: nextPage);
 
   static PortraitPageSchema fromJson(Map<String, dynamic> json) {
     return new PortraitPageSchema(
         text: json['text'],
         restaurantName: json['restaurantName'],
+        imageRoute: json['imageRoute'],
         name: json['name'],
         nextPage: json['nextPage']);
   }
@@ -160,14 +163,17 @@ class OptionInputPageSchema extends InputPageSchema {
 class EndPageSchema extends InputPageSchema {
   final String text;
   final String restaurantName;
+  final String imageRoute;
 
-  EndPageSchema({this.text, this.restaurantName, name, nextPage})
+  EndPageSchema(
+      {this.text, this.restaurantName, this.imageRoute, name, nextPage})
       : super(name: name, nextPage: nextPage);
 
   static EndPageSchema fromJson(Map<String, dynamic> json) {
     return new EndPageSchema(
         text: json['text'],
         restaurantName: json['restaurantName'],
+        imageRoute: json['imageRoute'],
         name: json['name'],
         nextPage: json['nextPage']);
   }

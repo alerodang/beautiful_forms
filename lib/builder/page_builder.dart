@@ -12,7 +12,7 @@ class PageBuilder {
   static FormPage fromSchema(schema, int number) {
     switch (schema.runtimeType) {
       case PortraitPageSchema:
-        return PortraitPage(number: number, nextRoute: '/${schema.nextPage}', name: schema.name, route: '/${schema.name}', restaurantName: schema.restaurantName);
+        return PortraitPage(number: number, nextRoute: '/${schema.nextPage}', name: schema.name, route: '/${schema.name}', imageRoute: schema.imageRoute, restaurantName: schema.restaurantName);
         break;
       case StringFieldInputPageSchema:
         return StringPage(number: number, nextRoute: '/${schema.nextPage}', name: schema.name, route: '/${schema.name}', question: schema.question, text: schema.text,);
@@ -24,10 +24,10 @@ class PageBuilder {
         return PhoneNumberPage(number: number, nextRoute: '/${schema.nextPage}', name: schema.name, route: '/${schema.name}', question: schema.question, text: schema.text,);
         break;
       case OptionInputPageSchema:
-        return OptionPage(number: number, nextRoute: '/${schema.nextPage}', name: schema.name, route: '/${schema.name}', question: schema.question, text: schema.text, options: schema.options);
+        return OptionPage(number: number, nextRoute: '/${schema.nextPage}', name: schema.name, route: '/${schema.name}', question: schema.question, text: schema.text, options: schema.options,);
         break;
       case EndPageSchema:
-        return EndPage(number: number, nextRoute: '/${schema.nextPage}', name: schema.name, route: '/${schema.name}', restaurantName: schema.restaurantName,);
+        return EndPage(number: number, nextRoute: '/${schema.nextPage}', name: schema.name, route: '/${schema.name}', imageRoute: schema.imageRoute, restaurantName: schema.restaurantName,);
         break;
       default:
         throw new Exception('No valid page schema type: ' + schema.type);

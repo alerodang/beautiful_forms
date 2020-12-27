@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:beautiful_forms/builder/form_builder.dart';
 import 'package:beautiful_forms/widgets/providers/form_fields_notifier_provider.dart';
 
@@ -21,8 +19,8 @@ FormSchema schema = FormSchema.fromJson({
       "type": "PortraitPageSchema",
       "data": {
         "name": "portrait",
-        "text": "", // TODO
-        "imageRoute": "assets/images/logo.png",
+        "text": "",
+        "imageRoute": "assets/images/restaurant_logo.png",
         "restaurantName": "YumYum",
         "nextPage": "name",
         "options": []
@@ -95,6 +93,7 @@ FormSchema schema = FormSchema.fromJson({
         "restaurantName": "YumYum",
         "inputType": "string",
         "name": "end",
+        "imageRoute": "assets/images/app_logo.png",
         "text": '¡Muchas gracias!',
       }
     }

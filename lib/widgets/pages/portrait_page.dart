@@ -5,8 +5,9 @@ import 'package:flutter/services.dart';
 
 class PortraitPage extends FormPage {
   final String restaurantName;
+  final String imageRoute;
 
-  PortraitPage({nextRoute, name, route, number, this.restaurantName})
+  PortraitPage({this.restaurantName, this.imageRoute, nextRoute, name, route, number,})
       : super(nextRoute: nextRoute, name: name, route: route, number: number);
 
   @override
@@ -25,7 +26,7 @@ class PortraitPage extends FormPage {
           height: MediaQuery.of(context).size.height,
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             Image.asset(
-              'assets/images/logo.png',
+              imageRoute,
               width: MediaQuery.of(context).size.width * 0.8,
             ),
             Divider(

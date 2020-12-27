@@ -7,8 +7,9 @@ import 'package:provider/provider.dart';
 
 class EndPage extends FormPage {
   final String restaurantName;
+  final String imageRoute;
 
-  EndPage({this.restaurantName, nextRoute, name, route, number})
+  EndPage({this.restaurantName, this.imageRoute, nextRoute, name, route, number})
       : super(nextRoute: nextRoute, name: name, route: route, number: number);
 
   @override
@@ -33,7 +34,7 @@ class EndPage extends FormPage {
           height: MediaQuery.of(context).size.height,
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             Image.asset(
-              'assets/images/logo.png',
+              'assets/images/app_logo.png',
               width: MediaQuery.of(context).size.width * 0.8,
             ),
             Divider(height: 20),
