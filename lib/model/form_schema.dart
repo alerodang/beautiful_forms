@@ -29,11 +29,11 @@ class FormSchema {
         initialPage = json['initialPage'],
         pagesSchemas = json['pagesSchemas']
             .map<FormPageSchema>(
-                (e) => FormSchema.getPage(e['type'], e['data']))
+                (e) => FormSchema.getPageSchema(e['type'], e['data']))
             .toList(),
         title = json['title'];
 
-  static FormPageSchema getPage(type, Map<String, dynamic> data) {
+  static FormPageSchema getPageSchema(type, Map<String, dynamic> data) {
     switch (type) {
       case 'PortraitPageSchema':
         return PortraitPageSchema.fromJson(data);
