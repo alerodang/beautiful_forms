@@ -9,7 +9,7 @@ class QuestionText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Wrap (
       children: [
         Container(width: 43, child: Text('$number -', style: TextStyle(
           fontSize: 24,

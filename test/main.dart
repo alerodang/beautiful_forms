@@ -19,7 +19,9 @@ FormSchema schema = FormSchema.fromJson({
       "type": "PortraitPageSchema",
       "data": {
         "name": "portrait",
-        "text": "",
+        "text1": "¡Bienvenido a la app de los restaurantes!",
+        "text2": "Estas a punto de entrar en la cola de restaurantName. Una vez te apuntes te avisaremos cuando sea tu turno para que puedas aprovechar el tiempo. ",
+        "buttonText": "¡Quiero Apuntarme!",
         "imageRoute": "assets/images/restaurant_logo.png",
         "restaurantName": "YumYum",
         "nextPage": "name",

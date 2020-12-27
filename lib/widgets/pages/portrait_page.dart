@@ -6,8 +6,11 @@ import 'package:flutter/services.dart';
 class PortraitPage extends FormPage {
   final String restaurantName;
   final String imageRoute;
+  final String text1;
+  final String text2;
+  final String buttonText;
 
-  PortraitPage({this.restaurantName, this.imageRoute, nextRoute, name, route, number,})
+  PortraitPage({this.restaurantName, this.imageRoute, this.text1, this.text2, this.buttonText, nextRoute, name, route, number,})
       : super(nextRoute: nextRoute, name: name, route: route, number: number);
 
   @override
@@ -33,18 +36,18 @@ class PortraitPage extends FormPage {
               height: 50,
             ),
             Text(
-              '¡Bienvenido a la app de los restaurantes!',
+              text1,
               style: Theme.of(context).textTheme.bodyText1,
               textAlign: TextAlign.center,
             ),
             Divider(),
             Text(
-              'Estas a punto de entrar en la cola de $restaurantName. Una vez te apuntes te avisaremos cuando sea tu turno para que puedas aprovechar el tiempo. ',
+              text2,
               style: Theme.of(context).textTheme.bodyText2,
               textAlign: TextAlign.center,
             ),
             Divider(height: 40),
-            StartButton(message: '¡Quiero Apuntarme!', nextRoute: nextRoute),
+            StartButton(message: buttonText, nextRoute: nextRoute),
           ]),
         ),
       ]),

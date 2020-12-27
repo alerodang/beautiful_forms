@@ -12,7 +12,7 @@ class PageBuilder {
   static FormPage fromSchema(schema, int number) {
     switch (schema.runtimeType) {
       case PortraitPageSchema:
-        return PortraitPage(number: number, nextRoute: '/${schema.nextPage}', name: schema.name, route: '/${schema.name}', imageRoute: schema.imageRoute, restaurantName: schema.restaurantName);
+        return PortraitPage(number: number, nextRoute: '/${schema.nextPage}', name: schema.name, route: '/${schema.name}', imageRoute: schema.imageRoute, restaurantName: schema.restaurantName, text1: schema.text1, text2: schema.text2, buttonText: schema.buttonText,);
         break;
       case StringFieldInputPageSchema:
         return StringPage(number: number, nextRoute: '/${schema.nextPage}', name: schema.name, route: '/${schema.name}', question: schema.question, text: schema.text,);

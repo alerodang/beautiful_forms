@@ -13,17 +13,21 @@ class FormPageSchema {
 }
 
 class PortraitPageSchema extends FormPageSchema {
-  final String text;
   final String restaurantName;
   final String imageRoute;
+  final String text1;
+  final String text2;
+  final String buttonText;
 
   PortraitPageSchema(
-      {this.text, this.restaurantName, this.imageRoute, name, nextPage})
+      {this.text1, this.text2, this.buttonText, this.restaurantName, this.imageRoute, name, nextPage})
       : super(name: name, nextPage: nextPage);
 
   static PortraitPageSchema fromJson(Map<String, dynamic> json) {
     return new PortraitPageSchema(
-        text: json['text'],
+        text1: json['text1'],
+        text2: json['text2'],
+        buttonText: json['buttonText'],
         restaurantName: json['restaurantName'],
         imageRoute: json['imageRoute'],
         name: json['name'],
