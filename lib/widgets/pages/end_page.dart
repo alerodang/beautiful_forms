@@ -10,7 +10,14 @@ class EndPage extends FormPage {
   final String imageRoute;
   final String text;
 
-  EndPage({this.restaurantName, this.imageRoute, this.text, nextRoute, name, route, number})
+  EndPage(
+      {required this.restaurantName,
+      required this.imageRoute,
+      required this.text,
+      nextRoute,
+      name,
+      route,
+      number})
       : super(nextRoute: nextRoute, name: name, route: route, number: number);
 
   @override
@@ -41,12 +48,14 @@ class EndPage extends FormPage {
             Divider(height: 20),
             Text(
               text,
-              style: Theme.of(context).textTheme.bodyText2,
+              style: Theme.of(context).textTheme.bodyMedium,
               textAlign: TextAlign.center,
             ),
             Divider(height: 40),
             ContactButton(
-                message: 'Contacta con nosotros', nextRoute: nextRoute),
+              message: 'Contacta con nosotros',
+              nextRoute: nextRoute!,
+            ),
           ]),
         ),
       ]),

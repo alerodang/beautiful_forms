@@ -1,9 +1,10 @@
 library beautiful_forms;
 
-import 'package:beautiful_forms/builder/routes_builder.dart';
-import 'package:beautiful_forms/model/page_schema.dart';
 import 'package:beautiful_forms/theme.dart';
 import 'package:flutter/material.dart';
+
+import 'builder/routes_builder.dart';
+import 'model/page_schema.dart';
 
 class BeautifulForm extends StatelessWidget {
   final String title;
@@ -15,13 +16,13 @@ class BeautifulForm extends StatelessWidget {
   final List<FormPageSchema> pagesSchemas;
 
   BeautifulForm({
-    this.title,
-    this.primaryColor,
-    this.secondaryColor,
-    this.fontFamily1,
-    this.fontFamily2,
-    this.initialPage,
-    this.pagesSchemas,
+    required this.title,
+    required this.primaryColor,
+    required this.secondaryColor,
+    required this.fontFamily1,
+    required this.fontFamily2,
+    required this.initialPage,
+    required this.pagesSchemas,
   });
 
   @override

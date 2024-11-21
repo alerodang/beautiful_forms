@@ -2,5 +2,5 @@ class Option {
   final String text;
   final String value;
 
-  Option({this.text, this.value});
+  Option({required this.text, required this.value});
 }

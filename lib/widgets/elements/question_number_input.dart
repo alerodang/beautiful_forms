@@ -6,7 +6,11 @@ class QuestionNumberInput extends StatelessWidget {
   final Function(String, dynamic) onChange;
   final String field;
 
-  QuestionNumberInput({this.color, this.onChange, this.field});
+  QuestionNumberInput({
+    required this.color,
+    required this.onChange,
+    required this.field,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +22,9 @@ class QuestionNumberInput extends StatelessWidget {
         style: TextStyle(
             fontSize: 24,
             color: color,
-            fontFamily: Theme.of(context).textTheme.bodyText1.fontFamily),
+            fontFamily: Theme.of(context).textTheme.bodyLarge?.fontFamily),
         textAlign: TextAlign.left,
-          onChanged: (e) => this.onChange(field, e),
+        onChanged: (e) => this.onChange(field, e),
         decoration: InputDecoration(
           enabledBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: color.withOpacity(0.3)),

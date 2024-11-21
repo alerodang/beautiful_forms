@@ -3,8 +3,6 @@ import 'package:beautiful_forms/widgets/pages/input_page.dart';
 abstract class FieldPage extends InputPage {
   static InputType pageType = InputType.field;
 
-  static bool validateInput;
-
   FieldPage({question, text, nextRoute, name, route, number})
       : super(
             question: question,

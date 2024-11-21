@@ -10,7 +10,7 @@ class OptionPage extends InputPage {
   static InputType pageType = InputType.option;
   final List<Option> options;
 
-  OptionPage({this.options, question, text, nextRoute, name, route, number})
+  OptionPage({required this.options, question, text, nextRoute, name, route, number})
       : super(
             question: question,
             text: text,
@@ -37,15 +37,15 @@ class OptionPage extends InputPage {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                QuestionText(question: question, number: number),
+                QuestionText(question: question, number: number,),
                 Divider(height: 10),
                 QuestionInfoText(text: text),
                 Divider(height: 10),
                 Divider(height: 10),
                 Selector(
-                  color: Theme.of(context).accentColor,
+                  color: Theme.of(context).colorScheme.secondary,
                   options: options,
-                  nextRoute: nextRoute,
+                  nextRoute: nextRoute!,
                   field: name,
                 ),
               ]),

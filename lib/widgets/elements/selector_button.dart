@@ -9,17 +9,22 @@ class SelectorButton extends StatelessWidget {
   final Function(String, dynamic) onChange;
   final String field;
 
-  SelectorButton(
-      {this.option, this.letter, this.nextRoute, this.onChange, this.field});
+  SelectorButton({
+    required this.option,
+    required this.letter,
+    required this.nextRoute,
+    required this.onChange,
+    required this.field,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return OutlineButton(
-      padding: EdgeInsets.zero,
+    return OutlinedButton(
       child: Container(
-        color: Theme.of(context).accentColor.withOpacity(0.15),
+        padding: EdgeInsets.zero,
         constraints: BoxConstraints(maxWidth: 150),
         width: MediaQuery.of(context).size.width,
+        color: Theme.of(context).colorScheme.secondary.withOpacity(0.15),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -31,22 +36,35 @@ class SelectorButton extends StatelessWidget {
                   Center(child: Text(letter, style: TextStyle(fontSize: 12))),
               decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor,
-                border: Border.all(color: Theme.of(context).accentColor),
+                border: Border.all(color: Theme.of(context).colorScheme.secondary),
               ),
             ),
             Text(
               StringUtils.capitalize(option.text),
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.secondary,
+              ),
             ),
           ],
         ),
       ),
-      hoverColor: Theme.of(context).accentColor.withOpacity(0.3),
-      borderSide: BorderSide(
-        color: Theme.of(context).accentColor,
+      style: ButtonStyle(
+
+        side: WidgetStatePropertyAll(BorderSide(
+          color: Theme.of(context).colorScheme.secondary,
+        )),
+        overlayColor: WidgetStateProperty.resolveWith<Color?>(
+              (Set<WidgetState> states) {
+            if (states.contains(WidgetState.hovered))
+              return Theme.of(context).colorScheme.secondary.withOpacity(0.3);
+            return Theme.of(context).colorScheme.secondary.withOpacity(0.15); // Defer to the widget's default.
+          },
+        ),
       ),
-      onPressed: () => {this.onChange(field, option.value), Navigator.pushNamed(context, nextRoute)},
-      textColor: Theme.of(context).accentColor,
+      onPressed: () => {
+        this.onChange(field, option.value),
+        Navigator.pushNamed(context, nextRoute)
+      },
     );
-    // TODO Normal button not this
   }
 }

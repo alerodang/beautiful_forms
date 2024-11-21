@@ -6,19 +6,25 @@ class QuestionTextInput extends StatelessWidget {
   final Function(String, dynamic) onChange;
   final String field;
 
-  QuestionTextInput({this.color, this.onChange, this.field});
+  QuestionTextInput({
+    required this.color,
+    required this.onChange,
+    required this.field,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(left: 43),
       child: TextField(
-        inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[A-Za-z\s]'))],
+        inputFormatters: [
+          FilteringTextInputFormatter.allow(RegExp(r'[A-Za-z\s]'))
+        ],
         keyboardType: TextInputType.text,
         style: TextStyle(
             fontSize: 24,
             color: color,
-            fontFamily: Theme.of(context).textTheme.bodyText1.fontFamily),
+            fontFamily: Theme.of(context).textTheme.bodyLarge?.fontFamily),
         textAlign: TextAlign.left,
         onChanged: (e) => this.onChange(field, e),
         decoration: InputDecoration(

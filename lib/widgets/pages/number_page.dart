@@ -42,19 +42,19 @@ class NumberPage extends FieldPage {
                 QuestionText(
                   question: question,
                   number: number,
-                  accentColor: Theme.of(context).accentColor,
+                  accentColor: Theme.of(context).colorScheme.secondary,
                 ),
                 Divider(height: 10),
                 QuestionInfoText(text: text),
                 Divider(height: 10),
                 Divider(height: 10),
                 QuestionNumberInput(
-                  color: Theme.of(context).accentColor,
+                  color: Theme.of(context).colorScheme.secondary,
                   onChange: Provider.of<FormFieldsNotifierProvider>(context).updateData,
                   field: this.name,
                 ),
                 nextRoute != null
-                    ? NextButton(message: 'Siguiente', nextRoute: nextRoute)
+                    ? NextButton(message: 'Siguiente', nextRoute: nextRoute!)
                     : SubmitButton(message: 'Enviar Respuestas')
               ]),
         ),

@@ -7,8 +7,8 @@ class FormPageSchema {
   final String nextPage;
 
   FormPageSchema({
-    this.name,
-    this.nextPage,
+    required this.name,
+    required this.nextPage,
   });
 }
 
@@ -19,9 +19,15 @@ class PortraitPageSchema extends FormPageSchema {
   final String text2;
   final String buttonText;
 
-  PortraitPageSchema(
-      {this.text1, this.text2, this.buttonText, this.restaurantName, this.imageRoute, name, nextPage})
-      : super(name: name, nextPage: nextPage);
+  PortraitPageSchema({
+    required this.text1,
+    required this.text2,
+    required this.buttonText,
+    required this.restaurantName,
+    required this.imageRoute,
+    name,
+    nextPage,
+  }) : super(name: name, nextPage: nextPage);
 
   static PortraitPageSchema fromJson(Map<String, dynamic> json) {
     return new PortraitPageSchema(
@@ -36,9 +42,8 @@ class PortraitPageSchema extends FormPageSchema {
 }
 
 class InputPageSchema extends FormPageSchema {
-  static InputType inputType;
-  final String question;
-  final String text;
+  final String? question;
+  final String? text;
 
   InputPageSchema({
     this.question,
@@ -149,7 +154,7 @@ class OptionInputPageSchema extends InputPageSchema {
   static InputType inputType = InputType.option;
   final List<Option> options;
 
-  OptionInputPageSchema({this.options, question, text, name, nextPage})
+  OptionInputPageSchema({required this.options, question, text, name, nextPage})
       : super(question: question, text: text, name: name, nextPage: nextPage);
 
   static OptionInputPageSchema fromJson(Map<String, dynamic> json) {
@@ -170,7 +175,7 @@ class EndPageSchema extends InputPageSchema {
   final String imageRoute;
 
   EndPageSchema(
-      {this.text, this.restaurantName, this.imageRoute, name, nextPage})
+      {required this.text, required this.restaurantName, required this.imageRoute, name, nextPage})
       : super(name: name, nextPage: nextPage);
 
   static EndPageSchema fromJson(Map<String, dynamic> json) {

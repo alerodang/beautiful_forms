@@ -1,7 +1,6 @@
 import 'package:beautiful_forms/builder/form_builder.dart';
-import 'package:beautiful_forms/widgets/providers/form_fields_notifier_provider.dart';
-
 import 'package:beautiful_forms/model/form_schema.dart';
+import 'package:beautiful_forms/widgets/providers/form_fields_notifier_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,7 +19,8 @@ FormSchema schema = FormSchema.fromJson({
       "data": {
         "name": "portrait",
         "text1": "¡Bienvenido a la app de los restaurantes!",
-        "text2": "Estas a punto de entrar en la cola de restaurantName. Una vez te apuntes te avisaremos cuando sea tu turno para que puedas aprovechar el tiempo. ",
+        "text2":
+            "Estas a punto de entrar en la cola de restaurantName. Una vez te apuntes te avisaremos cuando sea tu turno para que puedas aprovechar el tiempo. ",
         "buttonText": "¡Quiero Apuntarme!",
         "imageRoute": "assets/images/restaurant_logo.png",
         "restaurantName": "YumYum",
@@ -102,50 +102,53 @@ FormSchema schema = FormSchema.fromJson({
   ]
 });
 
-Function onSubmit = (Map<String, dynamic> formattedData) async => {await QueueService.createSubscription('YumYum', {
-  "subscription": {
-    "consumedAt": null,
-    "customer": {"contactData": {}},
-    "deletedAt": null,
-    "restaurantName": "YumYum",
-    "restaurant": {
-      "owner": {
-        "name": "Ale",
-        "contactData": {
-          "email": "alerodriguezangulo@gmail.com",
-          "phoneNumber": "650021010"
+Function onSubmit = (Map<String, dynamic> formattedData) async => {
+      await QueueService.createSubscription('YumYum', {
+        "subscription": {
+          "consumedAt": null,
+          "customer": {"contactData": {}},
+          "deletedAt": null,
+          "restaurantName": "YumYum",
+          "restaurant": {
+            "owner": {
+              "name": "Ale",
+              "contactData": {
+                "email": "alerodriguezangulo@gmail.com",
+                "phoneNumber": "650021010"
+              }
+            },
+            "messages": [
+              {
+                "name": "Es tu turno",
+                "text":
+                    "En breve será tu turno, te recomendamos que te vayas acercando"
+              }
+            ],
+            "location": "location",
+            "filters": [
+              {
+                "name": "Localización",
+                "options": [
+                  "interior",
+                  "exterior",
+                ]
+              }
+            ],
+            "restaurantName": "YumYum"
+          },
+          "tags": [
+            {"name": "zone"},
+            {"name": "type"}
+          ],
+          "subscribedAt": "20201222133342",
+          "uniqueId": "84615f77-06cc-43b7-9a76-b5361925837b"
         }
-      },
-      "messages": [
-        {
-          "name": "Es tu turno",
-          "text":
-          "En breve será tu turno, te recomendamos que te vayas acercando"
-        }
-      ],
-      "location": "location",
-      "filters": [
-        {
-          "name": "Localización",
-          "options": [
-            "interior",
-            "exterior",
-          ]
-        }
-      ],
-      "restaurantName": "YumYum"
-    },
-    "tags": [
-      {"name": "zone"},
-      {"name": "type"}
-    ],
-    "subscribedAt": "20201222133342",
-    "uniqueId": "84615f77-06cc-43b7-9a76-b5361925837b"
-  }
-})};
+      })
+    };
 
 Future<void> main() async {
-  FormFieldsNotifierProvider queueSubscriptionProvider = FormFieldsNotifierProvider(schema.pagesSchemas, onSubmit);
+  FormFieldsNotifierProvider queueSubscriptionProvider =
+      FormFieldsNotifierProvider(schema.pagesSchemas, onSubmit);
 
   runApp(
     MultiProvider(

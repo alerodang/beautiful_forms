@@ -37,22 +37,16 @@ class FormSchema {
     switch (type) {
       case 'PortraitPageSchema':
         return PortraitPageSchema.fromJson(data);
-        break;
       case 'OptionInputPageSchema':
         return OptionInputPageSchema.fromJson(data);
-        break;
       case 'StringFieldInputPageSchema':
         return StringFieldInputPageSchema.fromJson(data);
-        break;
       case 'NumberFieldInputPageSchema':
         return NumberFieldInputPageSchema.fromJson(data);
-        break;
       case 'PhoneNumberFieldInputPageSchema':
         return PhoneNumberFieldInputPageSchema.fromJson(data);
-        break;
       case 'EndPageSchema':
         return EndPageSchema.fromJson(data);
-        break;
       default:
         throw Exception('Not valid page $type');
     }

@@ -14,8 +14,9 @@ class HttpRequest {
   Future<Map> execute() async {
     http.Response response = await this._getResponse();
     if (response.statusCode >= 200 && response.statusCode < 300) {
-      if (response.body.length == 0) return {};
-      else{
+      if (response.body.length == 0)
+        return {};
+      else {
         return jsonDecode(response.body);
       }
     } else {
@@ -27,14 +28,17 @@ class HttpRequest {
   Future<http.Response> _getResponse() async {
     switch (this._method) {
       case Method.get:
-        return await http.get(this._url, headers: this._headers);
+        return await http.get(Uri(path: this._url), headers: this._headers);
       case Method.post:
-        return await http.post(_url, headers: this._headers, body: this._body);
+        return await http.post(Uri(path: _url),
+            headers: this._headers, body: this._body);
       case Method.delete:
-        http.Request request = http.Request('DELETE', Uri.parse(this._url))..headers.addAll(_headers);
+        http.Request request = http.Request('DELETE', Uri.parse(this._url))
+          ..headers.addAll(_headers);
         request.body = this._body;
 
-        http.StreamedResponse responseStream = await http.Client().send(request);
+        http.StreamedResponse responseStream =
+            await http.Client().send(request);
 
         return http.Response.fromStream(responseStream);
       case Method.put:

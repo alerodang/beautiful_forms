@@ -8,8 +8,11 @@ class QuestionPhoneNumberInput extends StatelessWidget {
   final Function(String, dynamic) onChange;
   final String field;
 
-
-  QuestionPhoneNumberInput({this.color, this.onChange, this.field});
+  QuestionPhoneNumberInput({
+    required this.color,
+    required this.onChange,
+    required this.field,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -50,12 +53,15 @@ class QuestionPhoneNumberInput extends StatelessWidget {
 //          SizedBox(width: 10),
           Flexible(
             child: TextField(
-              inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+              inputFormatters: [
+                FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))
+              ],
               keyboardType: TextInputType.number,
               style: TextStyle(
                   fontSize: 24,
                   color: color,
-                  fontFamily: Theme.of(context).textTheme.bodyText1.fontFamily),
+                  fontFamily:
+                      Theme.of(context).textTheme.bodyLarge?.fontFamily),
               textAlign: TextAlign.left,
               onChanged: (e) => this.onChange(field, e),
               decoration: InputDecoration(

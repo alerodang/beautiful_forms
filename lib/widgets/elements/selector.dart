@@ -10,7 +10,12 @@ class Selector extends StatelessWidget {
   final String nextRoute;
   final String field;
 
-  const Selector({this.options, this.color, this.nextRoute, this.field});
+  const Selector({
+    required this.options,
+    required this.color,
+    required this.nextRoute,
+    required this.field,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +30,9 @@ class Selector extends StatelessWidget {
                           option: e,
                           letter: String.fromCharCode(65 + options.indexOf(e)),
                           nextRoute: nextRoute,
-                          onChange: Provider.of<FormFieldsNotifierProvider>(context).updateData,
+                          onChange:
+                              Provider.of<FormFieldsNotifierProvider>(context)
+                                  .updateData,
                           field: field,
                         ),
                         Divider(

@@ -10,8 +10,17 @@ class PortraitPage extends FormPage {
   final String text2;
   final String buttonText;
 
-  PortraitPage({this.restaurantName, this.imageRoute, this.text1, this.text2, this.buttonText, nextRoute, name, route, number,})
-      : super(nextRoute: nextRoute, name: name, route: route, number: number);
+  PortraitPage({
+    required this.restaurantName,
+    required this.imageRoute,
+    required this.text1,
+    required this.text2,
+    required this.buttonText,
+    nextRoute,
+    name,
+    route,
+    number,
+  }) : super(nextRoute: nextRoute, name: name, route: route, number: number);
 
   @override
   Widget build(BuildContext context) {
@@ -37,17 +46,17 @@ class PortraitPage extends FormPage {
             ),
             Text(
               text1,
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.bodyLarge,
               textAlign: TextAlign.center,
             ),
             Divider(),
             Text(
               text2,
-              style: Theme.of(context).textTheme.bodyText2,
+              style: Theme.of(context).textTheme.bodyMedium,
               textAlign: TextAlign.center,
             ),
             Divider(height: 40),
-            StartButton(message: buttonText, nextRoute: nextRoute),
+            StartButton(message: buttonText, nextRoute: nextRoute!),
           ]),
         ),
       ]),

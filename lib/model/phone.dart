@@ -1,5 +1,5 @@
 class Phone {
-  String number;
+  late  String number;
   String prefix = '34';
 
   Phone(String number) {
