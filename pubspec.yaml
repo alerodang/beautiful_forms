@@ -1,11 +1,10 @@
 name: beautiful_forms
 description: Create beautiful forms with flutter example.
-version: 0.0.2
+version: 0.0.3
 
 
 environment:
   sdk: ">=3.5.0 <4.0.0"
-  flutter: ">=1.17.0 <2.0.0"
 
 dependencies:
   flutter:
